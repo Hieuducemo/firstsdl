@@ -13,6 +13,7 @@
 class Game
 {
 public:
+    //SDL_Texture : driver-specific representation of pixel data 
     SDL_Texture* tex_background;
     SDL_Texture* tex_ground;
     SDL_Texture* tex_playerUp;
