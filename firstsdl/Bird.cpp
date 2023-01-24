@@ -1,5 +1,5 @@
 #include "Bird.h"
-
+//first i wanted to demo flappy bird game so i named it was bird, but then i changed image into a fish to make something different. 
 void Bird::init()
 {
     currentRenderingTexture = mid;
