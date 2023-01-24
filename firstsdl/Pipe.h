@@ -7,7 +7,7 @@
 
 struct Pipe
 {
-
+//SDL_Rect creat a rectangle at x,y and with w width and h height
     SDL_Rect top_src, top_dst;
     SDL_Rect bottom_dst, bottom_src;
 
@@ -15,28 +15,29 @@ struct Pipe
 
     Pipe(int x, int height)
     {
+        //floor
         bottom_dst.x = x;
         bottom_dst.y = HEIGHT - height;
         bottom_dst.w = PIPE_WIDTH;
         bottom_dst.h = height;
-        
+        //below net
         bottom_src.x = 0;
         bottom_src.y = 0;
         bottom_src.w = PIPE_WIDTH_SRC;
         bottom_src.h = height;
-        
+        //ceiling
         top_dst.x = x;
         top_dst.y = 0;
         top_dst.w = PIPE_WIDTH;
         top_dst.h = HEIGHT - height - PIPE_GAP;
-        
+        //upper net 
         top_src.x = top_src.y = 0;
         top_src.w = PIPE_WIDTH_SRC;
         top_src.h = top_dst.h;
         
         passed = false;
     }
-
+// function to show net
     void render(SDL_Renderer* renderer, SDL_Texture* tex)
     {
         SDL_RenderCopy(renderer, tex, &bottom_src, &bottom_dst);
