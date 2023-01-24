@@ -2,6 +2,7 @@
 
 Game::Game(const char* title, int width, int height)
 {
+    //open 
     window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
@@ -46,16 +47,17 @@ void Game::Start()
 {
     // initialize everything before the game starts
     init();
-
+//record start time 
     auto t1 = std::chrono::system_clock::now();
     auto t2 = t1;
 
     // main game loop
     while (isRunning)
     {
+        //record end time
         t1 = t2;
         t2 = std::chrono::system_clock::now();
-
+   //get jump time(elapsedTime) 
         std::chrono::duration<float> dt = t2 - t1;
 
         bool jump = false;
@@ -67,7 +69,7 @@ void Game::Start()
             if ((event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_SPACE) || (event.type == SDL_MOUSEBUTTONDOWN && event.button.button == SDL_BUTTON_LEFT))
                 jump = gameStarted = true;
         }
-
+//I tried to smoothen the game 
         if (frameDelay > dt.count())
             SDL_Delay(frameDelay - dt.count());
 
@@ -87,11 +89,12 @@ void Game::Start()
 void Game::update(bool jump, float elapsedTime, bool& gameover)
 {
     bird->update(jump, elapsedTime);
-  
+  //if the game is over, remove the net from list 
     for (auto p : pipes){
         if (gameover == true) {
             pipes.pop_front();      
        }   
+        //creat upper and below net
         p->bottom_dst.x -= PIPE_V;
         p->top_dst.x = p->bottom_dst.x;
        
