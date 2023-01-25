@@ -187,9 +187,9 @@ void Game::loadTextures()
 {
     tex_background = IMG_LoadTexture(renderer, "image/ocean.png");
     tex_pipe = IMG_LoadTexture(renderer, "image/net3.png");
-    tex_playerMid = IMG_LoadTexture(renderer, "image/fish.png");
-    tex_playerUp = IMG_LoadTexture(renderer, "image/fishkingup.png");
-    tex_playerDown = IMG_LoadTexture(renderer, "image/fishkingdown.png");
+    tex_playerMid = IMG_LoadTexture(renderer, "image/fishmid.png");
+    tex_playerUp = IMG_LoadTexture(renderer, "image/fishup.png");
+    tex_playerDown = IMG_LoadTexture(renderer, "image/fishdown.png");
     tex_ground = IMG_LoadTexture(renderer, "image/base3.png");
     tex_gameover = IMG_LoadTexture(renderer, "image/gameover.png");
  
